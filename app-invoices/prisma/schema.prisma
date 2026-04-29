@@ -1,0 +1,16 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/db/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Invoice {
+  id         String   @id @default(uuid())
+  orderId String   @unique
+  createdAt  DateTime @default(now())
+
+  @@map("invoices")
+}
