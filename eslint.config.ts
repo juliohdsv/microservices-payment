@@ -1,0 +1,37 @@
+import js from '@eslint/js';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+import { defineConfig } from 'eslint/config';
+
+export default defineConfig([
+  {
+    files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],
+    plugins: { js },
+    extends: ['js/recommended'],
+    languageOptions: { globals: globals.node },
+    rules: {
+      quotes: ['error', 'single'],
+      semi: ['error', 'always'],
+      'comma-dangle': ['error', 'always-multiline'],
+      'object-curly-spacing': ['error', 'always'],
+      'array-bracket-spacing': ['error', 'never'],
+      'space-before-function-paren': ['error', 'never'],
+      'arrow-spacing': ['error', { before: true, after: true }],
+      'key-spacing': ['error', { beforeColon: false, afterColon: true }],
+      'no-multiple-empty-lines': ['error', { max: 1 }],
+      'eol-last': ['error', 'always'],
+      eqeqeq: ['error', 'always'],
+      curly: ['error', 'all'],
+      'no-duplicate-imports': 'error',
+      'no-console': 'warn',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          varsIgnorePattern: '^_',
+          argsIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
+  tseslint.configs.recommended,
+]);
