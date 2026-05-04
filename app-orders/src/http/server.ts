@@ -8,8 +8,7 @@ import {
   type ZodTypeProvider,
 } from "fastify-type-provider-zod";
 
-// import { prisma } from "./db/prisma-client.ts";
-import { dispatchOrderCreated } from "./broker/messages/order-created.ts";
+import { dispatchOrderCreated } from "../broker/messages/order-created.ts";
 
 const app = fastify().withTypeProvider<ZodTypeProvider>();
 
@@ -45,12 +44,6 @@ app.post(
           id: randomUUID(),
         },
       });
-
-      // await prisma.order.create({
-      //   data: {
-      //     ...order.toJSON(),
-      //   },
-      // });
 
       console.log("[Orders] Received order with amount:", amount);
 

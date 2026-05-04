@@ -8,9 +8,9 @@ datasource db {
 }
 
 model Invoice {
-  id         String   @id @default(uuid())
-  orderId String   @unique
-  createdAt  DateTime @default(now())
+  id        String   @id @default(uuid())
+  orderId   String   @unique
+  createdAt DateTime @default(now())
 
   @@map("invoices")
 }

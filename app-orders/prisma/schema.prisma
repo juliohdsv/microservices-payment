@@ -11,22 +11,7 @@ model Order {
   id         String   @id @default(uuid())
   customerId String   @unique
   amount     Int
-  status     String
   createdAt  DateTime @default(now())
 
   @@map("orders")
-}
-
-model Customer {
-  id        String   @id @default(uuid())
-  name      String
-  email     String   @unique
-  address   String
-  state     String
-  zipcode   String
-  country   String
-  dataBirth DateTime
-  createdAt DateTime @default(now())
-
-  @@map("customers")
 }
